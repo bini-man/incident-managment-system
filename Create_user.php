@@ -82,10 +82,11 @@ if (@$_GET['Invalid']==true) {
                   $last_name=$_POST['last_name'];
                   $email=$_POST['email'];
                   $password=$_POST['password'];
+                  $role="user";
                 //   $date=$_POST['date'];
                 //   $notice=$_POST['notice'];
                 //   $notice_am=$_POST['notice_am'];
-                  $insert="INSERT INTO users (email,first_name,last_name,password) values ('$email','$first_name','$last_name','$password')";
+                  $insert="INSERT INTO users (email,first_name,last_name,password,role) values ('$email','$first_name','$last_name','$password','$role')";
                   $exe=mysqli_query($con,$insert);
                   if ($exe) {
                     header("location:Create_user.php?Empty=User Created Successfuly");
