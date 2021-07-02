@@ -52,7 +52,7 @@ include_once 'header2.php';
               <option>Retired</option>
               </select>
               <br>
-              
+              fuck
              <button  name="postnotce" id="postnotce" class="glyphicon glyphicon-plus   btn btn-info"   > Create Incident</button>
 <br>
 <br>
