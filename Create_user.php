@@ -14,11 +14,37 @@
     <title>Create Incident</title>
 </head>
 <body>
+<?php
+include_once ("dbcon.php");
+?>
+<?php 
+ob_start();
+include_once 'dbcon.php';
+
+ ?>
 <?php 
 
 include_once 'header.php';
 include_once 'header2.php';
  ?>
+
+<?php 
+if (@$_GET['Empty']==true) {
+  ?>
+<div class="alert alert-success  "><strong>Success!</strong><?php echo $_GET['Empty'] ?></div>
+  <?php 
+}
+?>
+<?php 
+if (@$_GET['Invalid']==true) {
+  ?>
+  <div class="alert alert-danger "><strong>ERROR!</strong><?php echo $_GET['Invalid'] ?></div>
+  <?php 
+ 
+}
+
+ ?>
+
   <div class="container" id="postt">
       <div >
         <h1>User Creation FORM</h1>
@@ -41,16 +67,36 @@ include_once 'header2.php';
 
 
                Password:
-             <input type="text" name="password" required="" class="form-control">
+             <input type="password" name="password" required="" class="form-control">
               <br>
         Coniform Password:
-             <input type="text" name="cpassword" required="" class="form-control">
+             <input type="password" name="cpassword" required="" class="form-control">
               <br>
              <button  name="postnotce" id="postnotce" class="glyphicon glyphicon-plus   btn btn-info"   > Create User</button>
 <br>
 <br>
             </form>
+ <?php 
+                if (isset($_POST['postnotce'])) {
+                  $first_name=$_POST['first_name'];
+                  $last_name=$_POST['last_name'];
+                  $email=$_POST['email'];
+                  $password=$_POST['password'];
+                //   $date=$_POST['date'];
+                //   $notice=$_POST['notice'];
+                //   $notice_am=$_POST['notice_am'];
+                  $insert="INSERT INTO users (email,first_name,last_name,password) values ('$email','$first_name','$last_name','$password')";
+                  $exe=mysqli_query($con,$insert);
+                  if ($exe) {
+                    header("location:Create_user.php?Empty=User Created Successfuly");
+                       
+                  }else{
+                    header("location:Create_user.php?Invalid=User Not Created ");
+                     
+                  }
+                }
 
+               ?>
 </div>
 </div>
 
