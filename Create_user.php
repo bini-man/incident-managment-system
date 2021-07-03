@@ -1,3 +1,20 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin']))
+{
+?>
+ <script>
+  alert('YOU ARE NOT ALLOWED TO ACCESS!!Please Login to access the page');
+  window.location='login.php';
+ </script>
+<?php
+}
+ include_once("dbcon.php");
+?>
+<?php
+
+include_once ("dbcon.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +31,7 @@
     <title>Create Incident</title>
 </head>
 <body>
-<?php
-include_once ("dbcon.php");
-?>
+
 <?php 
 ob_start();
 include_once 'dbcon.php';
@@ -62,7 +77,7 @@ if (@$_GET['Invalid']==true) {
              <input type="text" name="last_name" required="" class="form-control">
               <br>
               Email:
-             <input type="text" name="email" required="" class="form-control">
+             <input type="email" name="email" required="" class="form-control">
               <br>
 
 
@@ -82,10 +97,14 @@ if (@$_GET['Invalid']==true) {
                   $last_name=$_POST['last_name'];
                   $email=$_POST['email'];
                   $password=$_POST['password'];
+                  $cpassword=$_POST['cpassword'];
                   $role="user";
                 //   $date=$_POST['date'];
                 //   $notice=$_POST['notice'];
                 //   $notice_am=$_POST['notice_am'];
+                if($password != $cpassword){
+                  header("location:Create_user.php?Invalid=The password you enter is not match");
+                }else{
                   $insert="INSERT INTO users (email,first_name,last_name,password,role) values ('$email','$first_name','$last_name','$password','$role')";
                   $exe=mysqli_query($con,$insert);
                   if ($exe) {
@@ -96,6 +115,7 @@ if (@$_GET['Invalid']==true) {
                      
                   }
                 }
+              }
 
                ?>
 </div>

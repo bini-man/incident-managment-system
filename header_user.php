@@ -67,6 +67,7 @@
   <a href="Manage_incident_user.php" class="glyphicon glyphicon-book"> Manage incident</a>
   <a href="Created_incident_user.php" class="glyphicon glyphicon-open-file"> Previusoly Created incident</a>
   <a href="Create_incident_user.php" class="glyphicon glyphicon-plus"> Create incident</a>
+  <a href="logout_user.php" class="glyphicon glyphicon-log-out"> Logout</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>

@@ -1,3 +1,21 @@
+<?php
+session_start();
+if(!isset($_SESSION['user']))
+{
+?>
+ <script>
+  alert('YOU ARE NOT ALLOWED TO ACCESS!!Please Login to access the page');
+  window.location='login.php';
+ </script>
+<?php
+}
+ include_once("dbcon.php");
+?>
+<?php
+include_once ("dbcon.php");
+//session_start();
+$username=$_SESSION['user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +29,31 @@
       margin-top: 20px;
     }
     </style>
-    <title>Manage user</title>
+    <title>Create Incident</title>
 </head>
 <body>
 <?php 
 
 include_once 'header.php';
 include_once 'header_user.php';
+ob_start();
+ ?>
+ 
+<?php 
+if (@$_GET['Empty']==true) {
+  ?>
+<div class="alert alert-success  "><strong>Success!</strong><?php echo $_GET['Empty'] ?></div>
+  <?php 
+}
+?>
+<?php 
+if (@$_GET['Invalid']==true) {
+  ?>
+  <div class="alert alert-danger "><strong>ERROR!</strong><?php echo $_GET['Invalid'] ?></div>
+  <?php 
+ 
+}
+
  ?>
  <div class="container" id="postt">
       <div >
@@ -29,22 +65,22 @@ include_once 'header_user.php';
             Incident Title:
 
          
-              <input type="text" name="date" required="" class="form-control">
+              <input type="text" name="title" required="" class="form-control">
               <br>
               Incident Owener:
 
          
-<input type="text" name="date" required="" class="form-control">
+<input type="text" name="owner" required="" class="form-control">
 <br>
               
               Incident description:
-              <textarea rows="10" cols="30" class="form-control">
+              <textarea rows="10" cols="30" name="description" class="form-control">
               
               </textarea>
               <br>
               
               Incident Status:
-              <select class="form-control">
+              <select class="form-control" name="status">
               <option> Purchased</option>
               <option> Operational</option>
               <option> In Store</option>
@@ -57,6 +93,27 @@ include_once 'header_user.php';
 <br>
 <br>
             </form>
+
+            
+            <?php 
+           
+                if (isset($_POST['postnotce'])) {
+                  $Incident_Title=$_POST['title'];
+                  $Incident_Owener=$_POST['owner'];
+                  $Incident_description=$_POST['description'];
+                  $Incident_Status=$_POST['status'];
+                  $insert="INSERT INTO incident (owner,description,status,title,created_user) values ('$Incident_Owener','$Incident_description','$Incident_Status',' $Incident_Title','$username')";
+                  $exe=mysqli_query($con,$insert);
+                  if ($exe) {
+                    header("location:Create_incident_user.php?Empty=Incident Created Successfuly");
+                  }else{
+                    header("location:Create_incident_user.php?Invalid=Incident Not Created ");
+                     
+                  }
+                }
+              
+
+               ?>
 
 </div>
 </div>

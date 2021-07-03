@@ -1,3 +1,20 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin']))
+{
+?>
+ <script>
+  alert('YOU ARE NOT ALLOWED TO ACCESS!!Please Login to access the page');
+  window.location='login.php';
+ </script>
+<?php
+}
+ include_once("dbcon.php");
+?>
+<?php
+
+include_once ("dbcon.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +30,6 @@
 </head>
 <body>
 
-<?php
-include_once ("dbcon.php");
-?>
 <?php 
 ob_start();
 include_once 'dbcon.php';

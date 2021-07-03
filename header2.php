@@ -1,3 +1,6 @@
+<?php 
+include_once 'dbcon.php';
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +73,7 @@
   <a href="Assign_incident.php" class="glyphicon glyphicon-share"> Assign Incedent</a>
   <a href="Manage_user.php" class="glyphicon glyphicon-user"> Manage Users</a>
   <a href="Create_user.php" class="glyphicon glyphicon-plus"> Create Users</a>
+  <a href="logout_admin.php" class="glyphicon glyphicon-log-out"> Logout</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -84,6 +88,5 @@ function myFunction() {
 }
 </script>
 </div>
-
 </body>
 </html>

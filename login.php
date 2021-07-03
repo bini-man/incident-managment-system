@@ -1,9 +1,17 @@
+<?php 
+session_start();
+if (isset($_SESSION['admin'])) {
+header('location:incident.php');
+}elseif(isset($_SESSION['user'])){
+header('location:Manage_incident_user.php');
+}else{
 
-
+}
+ ?>
 <?php 
 ob_start();
 include_once 'dbcon.php';
-
+//session_start();
  ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +19,7 @@ include_once 'dbcon.php';
 	<title>Login</title>
   <link rel="stylesheet"  href="bootstrap.min.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -20,7 +28,7 @@ include_once 'dbcon.php';
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
    
 	<style type="text/css">
 		
@@ -108,14 +116,29 @@ margin-left: 150px;
 
 include_once 'header.php';
  ?>
+<?php 
+if (@$_GET['Empty']==true) {
+  ?>
+<div class="alert alert-danger  "><strong>Invalid!</strong><?php echo $_GET['Empty'] ?></div>
+  <?php 
+}
+?>
+<?php 
+if (@$_GET['Invalid']==true) {
+  ?>
+  <div class="alert alert-danger "><strong>Invalid!</strong><?php echo $_GET['Invalid'] ?></div>
+  <?php 
+ 
+}
 
+ ?>
 	<div id="login"  >
 <p id="lo">Incident Managment System</p>
 <br>
 <br>
 <div id="ll">
   <form method="post" action="#">
- <span class="glyphicon glyphicon-user" style="color:black"></span><input type="text" id="user" name="username" placeholder=" Enter Username" required="">
+ <span class="glyphicon glyphicon-user" style="color:black"></span><input type="text" id="user" name="Email" placeholder=" Enter Email" required="">
 <br>
 <br>
 <span class="glyphicon glyphicon-lock" style="color:black"></span><input type="password" id="pass" name="password" placeholder=" ********" required="">
@@ -128,7 +151,38 @@ include_once 'header.php';
 <br>
 <br>
 </form>
+
 </div>
+<?php
+if (isset($_POST['login'])) {
+  $email=$_POST['Email'];
+  $password=$_POST['password'];
+  $UserType="SELECT role from users where email='$email' and password='$password'";
+  $res=mysqli_query($con,$UserType);
+  
+  $row = $res->fetch_assoc();
+ 
+  
+     
+  if (mysqli_num_rows($res)>0 ){
+        if( $row['role'] === "user"){
+          $_SESSION['user']=$email;
+          header('location:Manage_incident_user.php');
+          exit();
+          ob_end_flush();
+        }else{
+          $_SESSION['admin']=$email;
+          header('location:incident.php');
+          exit();
+          ob_end_flush();
+        }
+
+}else{
+header("location:login.php?Invalid=Invalid username or password");
+}
+}
+?>
+
 
 
 
