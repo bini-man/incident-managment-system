@@ -94,6 +94,7 @@ $(document).ready(function(){
             editable:[[1,'first_name'],[2,'last_name']]
 
         },
+        removeButton:true
         restoreButton:false,
         onSuccess:function(data,textStatus,jqXHR){
             if(data.action == 'delete'){

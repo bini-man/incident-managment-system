@@ -80,6 +80,15 @@ include_once 'footer.php';
 $(document).ready(function(){
     $('#editable_table').Tabledit({
         url:'action_incident.php',
+        deleteButton: false,
+    
+    buttons: {
+        edit: {
+            class: 'btn btn-sm btn-primary',
+            html: '<span class="glyphicon glyphicon-pencil"></span> &nbsp EDIT',
+            action: 'edit'
+        }
+    },
         columns:{
             identifier:[0,"serial_number"],
             editable:[[1,'title'],[2,'owner'],[3,'description']]
