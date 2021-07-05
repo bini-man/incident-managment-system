@@ -24,7 +24,7 @@ include_once ("dbcon.php");
     <title>Manage Incident</title>
   <style>
   #myInput {
-  background-image: url('searchicon.png');
+  background-image: url('images/searchicon.png');
   background-position: 10px 12px;
   background-repeat: no-repeat;
   width: 100%;

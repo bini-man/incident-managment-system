@@ -23,11 +23,11 @@
 	<div class="col-md-4">
 <h3>Social Media</h3>
 <ul style="list-style-type:none;">
-<li><a href="www.facebook.com"><img src="facebook.png" width="30" height="30"> facebook</a></li>
+<li><a href="www.facebook.com"><img src="images/facebook.png" width="30" height="30"> facebook</a></li>
 <br>
-<li><a href="www.instagram.com"><img src="insta.png" width="30" height="30"> instagram </a></li>
+<li><a href="www.instagram.com"><img src="images/insta.png" width="30" height="30"> instagram </a></li>
 <br>
-<li><a href="www.telegram.com"><img src="tg.png" width="30" height="30"> Telegram</a></li>
+<li><a href="www.telegram.com"><img src="images/tg.png" width="30" height="30"> Telegram</a></li>
 </ul>
 </div>
 <div class="col-md-4">
