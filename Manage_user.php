@@ -21,76 +21,9 @@ include_once ("dbcon.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>      
-    <script src="jquery.tabledit.min.js"></script>
-    <script src="manage_table.js"></script>
-    <style>
-        
-#myInput {
-  background-image: url('images/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-#manage_user{
-  color: #5bc0de;
-  text-align: center;
-}
-#frame{
-      border-radius: 25px;
-    }
-    .footer{
-      margin-left: 220px;
-    }
-    .column {
-      float: left;
-      width: 100%;
-      padding: 0 10px;
-      margin-left: 10px;
-      
-    }
-
-    /* Remove extra left and right margins, due to padding */
-    .row {
-      margin: 0 -5px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    th{
-      color:#5bc0de;
-    }
-    /* Responsive columns */
-    @media screen and (max-width: 600px) {
-      .column {
-        width: 80%;
-        display: block;
-        margin-bottom: 20px;
-      }
-    }
-
-    /* Style the counter cards */
-    .card {
-      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
-      padding: 16px;
-      margin-bottom: 20px;
-      text-align: left;
-      
-      background-color: #f1f1f1;
-    }
-
-    </style>
+   
+    <script src="js/manage_table.js"></script>
+    <link rel="stylesheet" href="css/style_tables.css">
     <title>Manage user</title>
 </head>
 <body>
@@ -174,28 +107,22 @@ $(document).ready(function(){
         columns:{
             identifier:[0,"id"],
             editable:[[1,'first_name'],[2,'last_name']]
-
         },
-        //removeButton:true
         restoreButton:false,
         onSuccess:function(data,textStatus,jqXHR){
             if(data.action == 'delete'){
                 $('#' +data.id).remove();
-
             }
         }
     });
 });
-
 function myFunction() {
-    // Declare variables
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("editable_table");
     tr = table.getElementsByTagName("tr");
   
-    // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[1];
       if (td) {

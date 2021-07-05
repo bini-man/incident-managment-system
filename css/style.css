@@ -1,0 +1,130 @@
+#postt {
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.footer {
+    margin-left: 220px;
+}
+
+.column {
+    float: left;
+    width: 92%;
+    padding: 0 10px;
+    margin-left: 20px;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#frame {
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+#incident_detail {
+    color: #5bc0de;
+}
+
+.card {
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: #f1f1f1;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+#login {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 8px;
+    margin: 10%;
+    margin-left: 26%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#lo {
+    text-align: center;
+    color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    font-size: 40px;
+}
+
+#pass {
+    float: center;
+}
+
+#ll {
+    margin-left: 130px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#user {
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border: none;
+    outline: none;
+    height: 30px;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+}
+
+#pass {
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border: none;
+    outline: none;
+    height: 30px;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+}
+
+ ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1;
+    /* Firefox */
+}
+
+ :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+}
+
+ ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+}
+
+#loo {
+    margin-left: 170px;
+}
+
+#rr {
+    background-color: white;
+    margin-left: 150px;
+}

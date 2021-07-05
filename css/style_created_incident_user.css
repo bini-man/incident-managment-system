@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+.footer {
+    margin-left: 230px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+#incident {
+    color: #5bc0de;
+    text-align: center;
+}
+
+#card {
+    border-radius: 20px;
+}
+
+.card {
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+}

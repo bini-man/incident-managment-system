@@ -10,114 +10,18 @@ if (isset($_SESSION['admin'])) {
 <?php
 ob_start();
 include_once 'dbcon.php';
-//session_start();
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Login</title>
-  <link rel="stylesheet" href="bootstrap.min.css">
-
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-
-  <style type="text/css">
-    body {
-      background-color: #ffffff;
-    }
-
-    #login {
-      margin: auto;
-      width: 50%;
-      border: 3px solid black;
-      border-radius: 20px;
-      padding: 8px;
-      margin: 10%;
-      margin-left: 26%;
-      margin-top: 30px;
-      margin-bottom: 50px;
-    }
-
-    #lo {
-      text-align: center;
-      color: black;
-      border: 3px solid black;
-      border-radius: 20px;
-      font-size: 40px;
-    }
-
-
-    #pass {
-      float: center;
-    }
-
-    #ll {
-      margin-left: 130px;
-      background-color: rgba(0, 0, 0, 0);
-      color: white;
-    }
-
-    #user {
-      background-color: rgba(0, 0, 0, 0);
-      color: black;
-      border: none;
-      outline: none;
-      height: 30px;
-      transition: height 1s;
-      -webkit-transition: height 1s;
-    }
-
-    #pass {
-      background-color: rgba(0, 0, 0, 0);
-      color: black;
-      border: none;
-      outline: none;
-      height: 30px;
-      transition: height 1s;
-      -webkit-transition: height 1s;
-    }
-    ::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: black;
-      opacity: 1;
-      /* Firefox */
-    }
-    :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: black;
-    }
-    ::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: black;
-    }
-
-    #loo {
-
-      margin-left: 170px;
-    }
-
-    #rr {
-      background-color: white;
-      margin-left: 150px;
-    }
-  </style>
-
-
-
+  <link rel="stylesheet" href="js/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <?php
-
   include_once 'header.php';
   ?>
   <?php
@@ -132,9 +36,7 @@ include_once 'dbcon.php';
   ?>
     <div class="alert alert-danger "><strong>Invalid!</strong><?php echo $_GET['Invalid'] ?></div>
   <?php
-
   }
-
   ?>
   <div id="login">
     <p id="lo">Incident Managment System</p>
@@ -149,14 +51,12 @@ include_once 'dbcon.php';
         <br>
         <br>
     </div>
-
     <br>
     <br>
     <button id="loo" name="login" class="btn btn-info"><span class="glyphicon glyphicon-log-in"> </span> Login </button>
     <br>
     <br>
     </form>
-
   </div>
   <?php
   if (isset($_POST['login'])) {
@@ -164,11 +64,7 @@ include_once 'dbcon.php';
     $password = $_POST['password'];
     $UserType = "SELECT role from users where email='$email' and password='$password'";
     $res = mysqli_query($con, $UserType);
-
     $row = $res->fetch_assoc();
-
-
-
     if (mysqli_num_rows($res) > 0) {
       if ($row['role'] === "user") {
         $_SESSION['user'] = $email;
@@ -186,15 +82,8 @@ include_once 'dbcon.php';
     }
   }
   ?>
-
-
-
-
   <?php
-
   include_once 'footer.php';
   ?>
-
 </body>
-
 </html>

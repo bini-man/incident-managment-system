@@ -1,0 +1,60 @@
+        #myInput {
+            background-image: url('../images/searchicon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        
+        #manage_user {
+            color: #5bc0de;
+            text-align: center;
+        }
+        
+        #frame {
+            border-radius: 25px;
+        }
+        
+        .footer {
+            margin-left: 220px;
+        }
+        
+        .column {
+            float: left;
+            width: 100%;
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+        
+        .row {
+            margin: 0 -5px;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        th {
+            color: #5bc0de;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 80%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+        
+        .card {
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+            background-color: #f1f1f1;
+        }
