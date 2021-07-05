@@ -33,13 +33,69 @@ include_once ("dbcon.php");
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+    #frame{
+      border-radius: 25px;
+    }
+    .footer{
+      margin-left: 220px;
+    }
+    .column {
+      float: left;
+      width: 100%;
+      padding: 0 10px;
+      margin-left: 10px;
+      
+    }
+    #manage_user{
+  color: #5bc0de;
+  text-align: center;
+}
+    /* Remove extra left and right margins, due to padding */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    th{
+      color:#5bc0de;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+      
+      background-color: #f1f1f1;
+    }
 
   </style>
 </head>
-<?php 
+<div class="footer">
+<?php
+
 
 include_once 'header.php';
-include_once 'header2.php';
+?>
+
+</div>
+<?php 
+
+include_once 'sidebar.php';
 ob_start();
  ?>
 <?php
@@ -47,6 +103,12 @@ $manage_user="SELECT * FROM incident ORDER BY serial_number ASC";
 $result=mysqli_query($con,$manage_user);
  ?>
  <br>
+ <div class="footer">
+ <div class="row">
+  
+  <div class="column" >
+      <div class="card" id="frame">
+      <h2 id="manage_user">Manage Incidents</h2>
 <div class="table-responsive">
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search using serial number.." class="col-md-3"  title="Type in a name">
 
@@ -84,10 +146,13 @@ $result=mysqli_query($con,$manage_user);
         </tbody>
     </table>
 
+    </div>
+ </div>
+  </div>
 </div>
+ </div>
 
-
-<div>
+<div class="footer">
 
 <?php 
 

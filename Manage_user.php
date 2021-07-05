@@ -39,6 +39,56 @@ include_once ("dbcon.php");
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+#manage_user{
+  color: #5bc0de;
+  text-align: center;
+}
+#frame{
+      border-radius: 25px;
+    }
+    .footer{
+      margin-left: 220px;
+    }
+    .column {
+      float: left;
+      width: 100%;
+      padding: 0 10px;
+      margin-left: 10px;
+      
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    th{
+      color:#5bc0de;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+      
+      background-color: #f1f1f1;
+    }
 
     </style>
     <title>Manage user</title>
@@ -50,17 +100,29 @@ ob_start();
 include_once 'dbcon.php';
 
  ?>
-<?php 
+ <div class="footer">
+<?php
+
 
 include_once 'header.php';
-include_once 'header2.php';
+?>
+<?php 
+
+include_once 'sidebar.php';
  ?>
+ </div>
  <?php
 $manage_user="SELECT * FROM users where role='user' ORDER BY id ASC";
 $result=mysqli_query($con,$manage_user);
  ?>
  <br>
+<div class="footer">
+ <div class="row">
+  
+  <div class="column" >
+      <div class="card" id="frame">
 <div class="table-responsive">
+  <h2 id="manage_user">Manage User</h2>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." class="col-md-3"  title="Type in a name">
     <table id="editable_table" class="table table-bordered table-striped">
         <thead>
@@ -89,17 +151,21 @@ $result=mysqli_query($con,$manage_user);
     </table>
 
 </div>
+      </div>
+  </div></div>
 
+  
+</div>
+</div>
 
-<div>
+</body>
+<div class="footer">
 
 <?php 
 
 include_once 'footer.php';
- ?>   
-
+ ?> 
 </div>
-</body>
 </html>
 <script>
 $(document).ready(function(){

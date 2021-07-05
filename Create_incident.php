@@ -22,21 +22,73 @@ include_once ("dbcon.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style >
     #postt{
-      border:3px solid black;
+      /* border:3px solid black; */
       border-radius: 20px;
       margin-top: 20px;
+    }
+    .footer{
+      margin-left: 220px;
+    }
+    .column {
+      float: left;
+      width: 92%;
+      padding: 0 10px;
+      margin-left: 20px;
+      
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #frame{
+      border-radius: 25px;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    #incident_detail{
+      color:#5bc0de ;
+     
+    }
+    /* Style the counter cards */
+    .card {
+      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+      
+      background-color: #f1f1f1;
     }
     </style>
     <title>Create Incident</title>
 </head>
 <body>
+<div class="footer">
+<?php
+include_once 'header.php';
+?>
+</div>
 <?php 
 
-include_once 'header.php';
-include_once 'header2.php';
+
+include_once 'sidebar.php';
 ob_start();
  ?>
-
+<div class="footer">
 <?php 
 if (@$_GET['Empty']==true) {
   ?>
@@ -53,9 +105,15 @@ if (@$_GET['Invalid']==true) {
 }
 
  ?>
+</div>
+<div class="footer">
+<div class="row">
+  
+  <div class="column" >
+      <div class="card" id="frame">
   <div class="container" id="postt">
       <div >
-        <h1>Incident Creation FORM</h1>
+        <h1 id="incident_detail">Incident Detail</h1>
         <br>
         
             <form method="post" action="#">
@@ -72,7 +130,7 @@ if (@$_GET['Invalid']==true) {
 <br>
               
               Incident description:
-              <textarea rows="10" name="description" cols="30" class="form-control">
+              <textarea rows="10" name="description" cols="25" class="form-control">
               
               </textarea>
               <br>
@@ -112,11 +170,16 @@ if (@$_GET['Invalid']==true) {
 
 </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
 <?php 
 
 include_once 'footer.php';
- ?>     
+ ?>   
+</div>  
 </body>
 
 </html>

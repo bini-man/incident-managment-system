@@ -13,6 +13,7 @@ if(!isset($_SESSION['user']))
 ?>
 <?php
 include_once ("dbcon.php");
+ob_start();
 //session_start();
 $username=$_SESSION['user'];
 ?>
@@ -24,22 +25,80 @@ $username=$_SESSION['user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style >
     #postt{
-      border:3px solid black;
+      /* border:3px solid black; */
       border-radius: 20px;
       margin-top: 20px;
     }
+    #manage_user{
+  color: #5bc0de;
+  /* text-align: center; */
+}
+#frame{
+      border-radius: 25px;
+    }
+    .footer{
+      margin-left: 220px;
+    }
+    .column {
+      float: left;
+      width: 100%;
+      padding: 0 10px;
+      margin-left: 10px;
+      
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    th{
+      color:#5bc0de;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+      
+      background-color: #f1f1f1;
+    }
+
+
     </style>
     <title>Create Incident</title>
 </head>
 <body>
-<?php 
+<div class="footer">
+<?php
+
 
 include_once 'header.php';
-include_once 'header_user.php';
-ob_start();
- ?>
- 
+?>
 <?php 
+
+include_once 'sidebar_user.php';
+ ?>
+ </div>
+ <div class="footer">
+
+ <?php 
 if (@$_GET['Empty']==true) {
   ?>
 <div class="alert alert-success  "><strong>Success!</strong><?php echo $_GET['Empty'] ?></div>
@@ -55,9 +114,22 @@ if (@$_GET['Invalid']==true) {
 }
 
  ?>
+
+
+ </div>
+ 
+ <div>
+
+
+ </div>
+ <div class=footer>
+ <div class="row">
+  
+  <div class="column" >
+      <div class="card" id="frame">
  <div class="container" id="postt">
       <div >
-        <h1>Incident Creation FORM</h1>
+        <h1 id="manage_user">Incident Creation FORM</h1>
         <br>
         
             <form method="post" action="#">
@@ -74,7 +146,7 @@ if (@$_GET['Invalid']==true) {
 <br>
               
               Incident description:
-              <textarea rows="10" cols="30" name="description" class="form-control">
+              <textarea rows="6" cols="15" name="description" class="form-control">
               
               </textarea>
               <br>
@@ -117,16 +189,21 @@ if (@$_GET['Invalid']==true) {
 
 </div>
 </div>
+      </div><div><div></div></div>
 
 
 
 
+  
 
+</div>
+ </div>
+ </div>
+</body>
+<div class="footer">
 <?php 
 
 include_once 'footer.php';
- ?>   
-
+ ?> 
 </div>
-</body>
 </html>

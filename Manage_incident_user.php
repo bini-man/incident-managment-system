@@ -26,20 +26,89 @@ if(!isset($_SESSION['user']))
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+#manage_user{
+  color: #5bc0de;
+  text-align: center;
+}
+#frame{
+      border-radius: 25px;
+    }
+    .footer{
+      margin-left: 220px;
+    }
+    .column {
+      float: left;
+      width: 100%;
+      padding: 0 10px;
+      margin-left: 10px;
+      
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    th{
+      color:#5bc0de;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: left;
+      
+      background-color: #f1f1f1;
+    }
 
   </style>
 <script src="manage_table.js"></script>
     <title>Manage user</title>
 </head>
 <body>
+
 <?php 
-include_once 'header.php';
-include_once 'header_user.php';
+ob_start();
+include_once 'dbcon.php';
+
  ?>
+ <div class="footer">
+<?php
+
+
+include_once 'header.php';
+?>
+<?php 
+
+include_once 'sidebar_user.php';
+ ?>
+ 
 <?php
 
  ?>
  <br>
+ <div class="row">
+  
+  <div class="column" >
+      <div class="card" id="frame">
+<div class="table-responsive">
+  <h2 id="manage_user">Manage Incident</h2>
 <div class="table-responsive">
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search using serial number.." class="col-md-3"  title="Type in a name">
 
@@ -79,18 +148,20 @@ include_once 'header_user.php';
         </tbody>
     </table>
 
-</div>
+</div></div></div></div>
+ </div></div>
 
 
-<div>
+
+
+</body>
+<div class="footer">
 
 <?php 
 
 include_once 'footer.php';
- ?>   
-
+ ?> 
 </div>
-</body>
 </html>
 <script>
 $(document).ready(function(){
@@ -100,7 +171,7 @@ $(document).ready(function(){
     
     buttons: {
         edit: {
-            class: 'btn btn-sm btn-primary',
+            class: 'btn btn-sm btn-info',
             html: '<span class="glyphicon glyphicon-pencil"></span> &nbsp EDIT',
             action: 'edit'
         }
