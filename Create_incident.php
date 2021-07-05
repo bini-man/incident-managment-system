@@ -57,6 +57,7 @@ include_once("dbcon.php");
               <h1 id="incident_detail">Incident Detail</h1>
               <br>
               <form method="post" action="create_incident_action.php">
+              <div id="inputs">
                 Incident Title:
                 <input type="text" name="title" required="" class="form-control">
                 <br>
@@ -79,6 +80,7 @@ include_once("dbcon.php");
                 <button name="postnotce" id="postnotce" class="glyphicon glyphicon-plus   btn btn-info"> Create Incident</button>
                 <br>
                 <br>
+                </div>
               </form>
             </div>
           </div>

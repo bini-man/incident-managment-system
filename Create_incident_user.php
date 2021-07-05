@@ -59,6 +59,7 @@ $username = $_SESSION['user'];
               <h1 id="manage_user">Incident Creation FORM</h1>
               <br>
               <form method="POST" action="create_incident_user_action.php">
+              <div id="inputs">
                 Incident Title:
                 <input type="text" name="title" required="" class="form-control">
                 <br>
@@ -81,6 +82,7 @@ $username = $_SESSION['user'];
                 <button name="postnotce" id="postnotce" class="glyphicon glyphicon-plus   btn btn-info"> Create Incident</button>
                 <br>
                 <br>
+                </div>
               </form>
             </div>
           </div>

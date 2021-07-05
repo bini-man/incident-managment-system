@@ -60,6 +60,7 @@ include_once("dbcon.php");
               <h1 id="user_detail">User Details</h1>
               <br>
               <form method="post" action="create_user_action.php">
+              <div id="inputs">
                 First Name:
                 <input type="text" name="first_name" required="" class="form-control">
                 <br>
@@ -78,6 +79,7 @@ include_once("dbcon.php");
                 <button name="postnotce" id="postnotce" class="glyphicon glyphicon-plus   btn btn-info"> Create User</button>
                 <br>
                 <br>
+                </div>
               </form>
             </div>
           </div>
