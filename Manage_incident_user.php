@@ -15,6 +15,20 @@ if(!isset($_SESSION['user']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+  #myInput {
+  background-image: url('searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+  </style>
+<script src="manage_table.js"></script>
     <title>Manage user</title>
 </head>
 <body>
@@ -27,17 +41,19 @@ include_once 'header_user.php';
  ?>
  <br>
 <div class="table-responsive">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search using serial number.." class="col-md-3"  title="Type in a name">
+
     <table id="editable_table" class="table table-bordered table-striped">
         <thead>
            <tr>
-            <th>Serial Number</th>
-            <th>Title</th>
-            <th>Owner</th>
-            <th>Description</th>
-            <th>Assigned User</th>
-            <th>Status</th>
-            <th>Created By</th>
-            <th>Incident Date</th>
+            <th  onclick="sortTable(0)">Serial Number  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th  onclick="sortTable(1)">Title  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th  onclick="sortTable(2)">Owner  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(3)">Description  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th >Assigned User  </th>
+            <th onclick="sortTable(5)">Status  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(6)">Created By  <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(7)">Incident Date  <span  class="glyphicon glyphicon-sort"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -103,5 +119,25 @@ $(document).ready(function(){
         }
     });
 });
-
+function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("editable_table");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
 </script>

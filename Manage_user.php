@@ -26,6 +26,21 @@ include_once ("dbcon.php");
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>      
     <script src="jquery.tabledit.min.js"></script>
+    <script src="manage_table.js"></script>
+    <style>
+        
+#myInput {
+  background-image: url('searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+    </style>
     <title>Manage user</title>
 </head>
 <body>
@@ -41,18 +56,19 @@ include_once 'header.php';
 include_once 'header2.php';
  ?>
  <?php
-$manage_user="SELECT * FROM users ORDER BY id ASC";
+$manage_user="SELECT * FROM users where role='user' ORDER BY id ASC";
 $result=mysqli_query($con,$manage_user);
  ?>
  <br>
 <div class="table-responsive">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." class="col-md-3"  title="Type in a name">
     <table id="editable_table" class="table table-bordered table-striped">
         <thead>
            <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th onclick="sortTable(0)" > ID <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(1)" >First Name <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(2)">Last Name <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(3)">Email <span  class="glyphicon glyphicon-sort"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -94,7 +110,7 @@ $(document).ready(function(){
             editable:[[1,'first_name'],[2,'last_name']]
 
         },
-        removeButton:true
+        //removeButton:true
         restoreButton:false,
         onSuccess:function(data,textStatus,jqXHR){
             if(data.action == 'delete'){
@@ -105,4 +121,25 @@ $(document).ready(function(){
     });
 });
 
+function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("editable_table");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
 </script>

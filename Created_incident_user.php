@@ -108,11 +108,12 @@ include_once 'header_user.php';
 
 <div>
 
-<?php 
-
-include_once 'footer.php';
- ?>   
+ 
 
 </div>
 </body>
+<?php 
+
+include_once 'footer.php';
+ ?>  
 </html>

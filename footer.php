@@ -42,4 +42,3 @@
 <h3>Developer</h3>
 <p>@Biniyam</p>
 </div>
-</div>
