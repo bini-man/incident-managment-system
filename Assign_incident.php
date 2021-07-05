@@ -25,6 +25,9 @@ include_once ("dbcon.php");
       #frame{
       border-radius: 25px;
     }
+    /* #assign{
+      padding-top: -140px;
+    } */
     .footer{
       margin-left: 220px;
     }
@@ -154,11 +157,11 @@ while ($row=mysqli_fetch_assoc($exee)) {
 echo '<option value="'.$row["email"].'">'.$row["email"].'</option>';
 }
 ?>
-  </select></div>
+  </select>
   <br>
-  <BUTTON name="assign" id="assign" value="" class="btn btn-primary my-2">ASSIGN</BUTTON>
+  <BUTTON name="assign" id="assign" value="" class="btn btn-info col-md-6 ">ASSIGN</BUTTON>
 
-  </form>
+  </form></div>
   <?php 
 if (isset($_POST['assign'])) {
 $requestid=$serial_number;
