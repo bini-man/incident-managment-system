@@ -65,7 +65,7 @@ $username = $_SESSION['user'];
                 Incident Owener:
                 <input type="text" name="owner" required="" class="form-control">
                 <br>
-                Incident description:
+                Incident Description:
                 <textarea rows="6" cols="15" name="description" class="form-control">
                 </textarea>
                 <br>

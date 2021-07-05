@@ -17,7 +17,7 @@ $email = $_SESSION['user'];
 <head>
   <link rel="stylesheet" href="css/style_tables.css">
   <script src="js/manage_table.js"></script>
-  <title>Manage user</title>
+  <title>Manage Incident</title>
 </head>
 
 <body>

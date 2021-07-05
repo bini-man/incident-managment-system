@@ -63,7 +63,7 @@ include_once("dbcon.php");
                 Incident Owener:
                 <input type="text" name="owner" required="" class="form-control">
                 <br>
-                Incident description:
+                Incident Description:
                 <textarea rows="10" name="description" cols="25" class="form-control">
               </textarea>
                 <br>
