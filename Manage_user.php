@@ -80,11 +80,11 @@ $result=mysqli_query($con,$manage_user);
                             ';
                             if($row["status"]=="active"){
                               
-                              echo '<td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-info">Deactivate</a></td>
+                              echo '<td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-danger">Deactivate</a></td>
                               ';
                             }else{
                                 echo '
-                            <td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-info">Activate</a></td> ';
+                            <td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-success">Activate</a></td> ';
                             }
                             echo '
                         </tr>

@@ -82,7 +82,7 @@ include_once("dbcon.php");
                     <select name="expert" id="expert" required="" class="form-control">
                       <option value="">Select User</option>
                       <?php
-                      $expetdisplay = "SELECT email FROM users WHERE role='user'";
+                      $expetdisplay = "SELECT email FROM users WHERE role='user' and status='active'";
                       $exee = mysqli_query($con, $expetdisplay);
                       while ($row = mysqli_fetch_assoc($exee)) {
                         echo '<option value="' . $row["email"] . '">' . $row["email"] . '</option>';
