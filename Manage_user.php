@@ -64,6 +64,7 @@ $result=mysqli_query($con,$manage_user);
             <th onclick="sortTable(1)" >First Name <span  class="glyphicon glyphicon-sort"></span></th>
             <th onclick="sortTable(2)">Last Name <span  class="glyphicon glyphicon-sort"></span></th>
             <th onclick="sortTable(3)">Email <span  class="glyphicon glyphicon-sort"></span></th>
+            <th onclick="sortTable(4)">Activate/Deactivate  <span  class="glyphicon glyphicon-sort"></span><span  class="glyphicon glyphicon-cog"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -76,6 +77,16 @@ $result=mysqli_query($con,$manage_user);
                             <td>'.$row["first_name"].'</td>
                             <td>'.$row["last_name"].'</td>
                             <td>'.$row["email"].'</td>
+                            ';
+                            if($row["status"]=="active"){
+                              
+                              echo '<td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-info">Deactivate</a></td>
+                              ';
+                            }else{
+                                echo '
+                            <td><a href="activate_deactivate.php?id='.$row['id'].' " class="btn btn-info">Activate</a></td> ';
+                            }
+                            echo '
                         </tr>
                     ';
                 }

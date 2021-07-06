@@ -39,6 +39,11 @@ body {
     text-align: center;
 }
 
+.previous {
+    color: #5bc0de;
+    text-align: left;
+}
+
 #card {
     border-radius: 20px;
 }

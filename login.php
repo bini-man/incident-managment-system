@@ -62,7 +62,7 @@ include_once 'dbcon.php';
   if (isset($_POST['login'])) {
     $email = $_POST['Email'];
     $password = $_POST['password'];
-    $UserType = "SELECT role from users where email='$email' and password='$password'";
+    $UserType = "SELECT role from users where email='$email' and password='$password' and status='active'";
     $res = mysqli_query($con, $UserType);
     $row = $res->fetch_assoc();
     if (mysqli_num_rows($res) > 0) {

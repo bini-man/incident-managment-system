@@ -33,8 +33,33 @@ $email = $_SESSION['user'];
     ?>
     <br>
     <h2 id="incident">Previously Created and Assigned Incident</h2>
+    <h2 class="previous">Assigned Incident</h2>
     <?php
-    $manage_user = "SELECT * FROM incident where assigned_user='$email' or created_user='$email' ORDER BY serial_number DESC ";
+    $manage_user = "SELECT * FROM incident where assigned_user='$email' ORDER BY serial_number DESC ";
+    $result = mysqli_query($con, $manage_user);
+    echo '<div class="row">         
+            ';
+    while ($row = mysqli_fetch_array($result)) {
+      echo '                 
+                    <div class="column">
+                    <div class="card" id="card">
+                          <p>Serial Number: ' . $row["serial_number"] . '</p>
+                          <p>Title: ' . $row["title"] . '</p>
+                          <p>Owner: ' . $row["owner"] . '</p>
+                          <p>Description: ' . $row["description"] . '</p>
+                          <p>Status: ' . $row["status"] . '</p>
+                          <p>Created By: ' . $row["created_user"] . '</p>
+                          <p>Incident Date: ' . $row["date"] . '</p>
+     
+                    </div>
+                    </div>
+  ';
+    }
+    ?>
+  </div>
+    <h2 class="previous">Previously Created Incident</h2>
+    <?php
+    $manage_user = "SELECT * FROM incident where created_user='$email' ORDER BY serial_number DESC ";
     $result = mysqli_query($con, $manage_user);
     echo '<div class="row">         
             ';
