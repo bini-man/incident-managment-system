@@ -38,12 +38,17 @@ include_once 'dbcon.php';
   <?php
   }
   ?>
-  <div id="login">
-    <p id="lo">Incident Managment System</p>
+  <div class="footer" style="width: 70%;">
+  <div class="row">
+      <div class="column">
+        <div class="card" id="frame" style="width: 75%;">
+        <p id="lo"  >Incident Managment System</p>
+  <div id="login" >
+   
     <br>
     <br>
     <div id="ll">
-      <form method="post" action="#">
+      <form method="post" action="#" style="padding-left: 0px;">
         <span class="glyphicon glyphicon-user" style="color:black"></span><input type="text" id="user" name="Email" placeholder=" Enter Email" required="">
         <br>
         <br>
@@ -57,6 +62,10 @@ include_once 'dbcon.php';
     <br>
     <br>
     </form>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
   <?php
   if (isset($_POST['login'])) {

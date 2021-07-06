@@ -55,26 +55,23 @@ body {
 
 #login {
     margin: auto;
-    width: 50%;
-    border: 3px solid black;
+    width: 1000%;
+    /* //border: 3px solid black; */
     border-radius: 20px;
     padding: 8px;
     margin: 10%;
     margin-left: 26%;
     margin-top: 30px;
     margin-bottom: 50px;
+    color: #5bc0de;
 }
 
 #lo {
-    text-align: center;
-    color: black;
-    border: 3px solid black;
-    border-radius: 20px;
+    text-align: left;
+    color: #5bc0de;
+    /* border: 3px solid black;
+    border-radius: 20px; */
     font-size: 40px;
-}
-
-#pass {
-    float: center;
 }
 
 #ll {
@@ -97,6 +94,7 @@ body {
     background-color: rgba(0, 0, 0, 0);
     color: black;
     border: none;
+    float: center;
     outline: none;
     height: 30px;
     transition: height 1s;
@@ -129,6 +127,6 @@ body {
     margin-left: 150px;
 }
 
-#inputs{
+#inputs {
     width: 90%;
 }
